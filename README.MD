@@ -1,55 +1,27 @@
-# <a name="0">Video Together 一起看视频</a>
+# VideoTogether
 
-**Currently only Chinese display language is available in this extension. I'm working on the localization now. English will be available soon, both extension display language and documentation.**
+## VideoTogether is a browser extension that syncs video playback with friends in real-time on Chrome, Edge, and Safari.
 
-## 欢迎访问插件主页，查看安装使用说明 http://2gether.video/
+## Visit http://2gether.video/ for more information
 
-文档正在完善中
-请加入插件的交流群获取更详细的帮助信息，以及反馈问题
+[ English ] [ [中文](https://github.com/VideoTogether/VideoTogether/blob/main/README_zh.MD) ]
 
-Telegram: https://t.me/videotogether_group
+## Installation
 
-QQ群: 170200260
-
-也欢迎提交任何 issue 以及 PR
-
-## 安装使用
-
-安装说明： http://2gether.video/guide/install.html
-
-使用说明：http://2gether.video/guide/introduction.html
-
-## 开发
-
-### 插件
-
-插件的核心代码在 `main/source/extension/vt.js`
-
-此外还有一个壳插件，为了让用户安装后可以一直获取最新的插件，代码在 `source/extension/extension.js`
-
-代码中 {{{ }}} 代表的是将某个文件插入到此处
-
-输入命令 `python script/build_extension.py` 脚本能够进行编译，编译结果在 `release` 目录
-
-### 服务端
-
-代码在 `source/server/main.py` 
-
-`python source/server/main.py debug` 运行一个本地服务器
-
-#### 私有化部署
-
-私有部署文档：http://2gether.video/guide/deploy.html
-
-## TODO
-
-- 使用 Websocket 替代 http 请求
-- 统计不同语言使用者
-- 增加多语言支持
-- 服务端清理不活跃房间
-- 服务端增加一些监控和报警
-- 在中国部署服务端
+Please visit our website https://2gether.video/ for installation guide
 
 
-### 赞助
-<img src="https://user-images.githubusercontent.com/23057110/175770059-c8faad24-dc79-42da-9359-bf462eb7e884.png" width="300">
+## Development
+
+### Extension
+
+The core code is `main/source/extension/vt.js`
+
+We use a very simple compile script `script/build_extension.py` to build
+
+run `python script/build_extension.py` to build, the output directory is `./release` 
+
+### Service
+
+service code is in `source/go-server`
+

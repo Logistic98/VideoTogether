@@ -1,29 +1,68 @@
 {
-    "name": "Video Together",
+    "name": "VideoTogether",
     "description": "Watch video together",
-    "version": "1.0",
-    "manifest_version": 2,
+    "version": "3.0.15",
+    "manifest_version": 3,
     "content_scripts": [
         {
             "matches": [
-                "*://*/*"
+                "<all_urls>"
             ],
             "js": [
-                "extension.user.js"
+                "extension.chrome.user.js"
             ],
             "all_frames": true
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "pre.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "preInjected.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true,
+            "world": "MAIN"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "load.en-us.js",
+                "load.zh-cn.js",
+                "load.ja-jp.js",
+                "vt.en-us.user.js",
+                "vt.zh-cn.user.js",
+                "vt.ja-jp.user.js",
+                "preInjected.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
         }
     ],
     "background": {
-        "scripts": [
-            "background.js"
-        ]
+        "service_worker": "background.chrome.js",
+        "mode": "module"
+    },
+    "icons": {
+        "192": "./icon/android-icon-192x192.png"
     },
     "permissions": [
-        "webRequest",
-        "webRequestBlocking",
         "storage",
-        "https://*/*",
-        "http://*/*"
-    ]
+        "unlimitedStorage"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
 }
